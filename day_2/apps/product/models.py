@@ -1,7 +1,7 @@
 from django.db import models
-from day_2.apps.base_model import TimeStampedModel
+from apps.base_model import TimeStampedModel
 
-class Product(TimeStampedModel, models.Model):
+class Product(TimeStampedModel):
     category = models.ForeignKey(
         'category.Category',
         on_delete=models.CASCADE,
@@ -15,9 +15,6 @@ class Product(TimeStampedModel, models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     stock = models.PositiveIntegerField(default=0)
     is_active = models.BooleanField(default=True)
-
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name = "Product"
