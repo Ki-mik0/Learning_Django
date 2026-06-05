@@ -1,7 +1,8 @@
 from django.db import models
+from day_2.apps.base_model import TimeStampedModel
 
-class Category(models.Model):
-    name = models.CHarField(max_length=255, verbose_name = "Category name")
+class Category(TimeStampedModel, models.Model):
+    name = models.CharField(max_length=255, verbose_name = "Category name")
     slug = models.SlugField(max_length=255, unique=True)
     description = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
