@@ -25,6 +25,11 @@ INSTALLED_APPS = [
     "rest_framework",
     # local
     "apps.users.apps.UsersConfig",
+    "apps.category.apps.CategoryConfig",
+    "apps.product.apps.ProductConfig",
+    "apps.sale.apps.SaleConfig",
+    "apps.ProductImage.apps.ProductImageConfig",
+    "apps.tag.apps.TagConfig",
     "django_tailwind_cli"
 ]
 

@@ -1,6 +1,7 @@
 from django.db import models
+from day_2.apps.base_model import TimeStampedModel
 
-class Product(models.Model):
+class Product(TimeStampedModel, models.Model):
     category = models.ForeignKey(
         'category.Category',
         on_delete=models.CASCADE,

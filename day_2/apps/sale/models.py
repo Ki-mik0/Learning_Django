@@ -1,10 +1,11 @@
 from django.db import models
+from day_2.apps.base_model import TimeStampedModel
 
-class Sale(models.Model):
+class Sale(TimeStampedModel):
     product = models.ForeignKey(
         'product.Product',
         on_delete=models.CASCADE,
-        related_name='products',
+        related_name='sale',
         verbose_name="Product"
     )
 
