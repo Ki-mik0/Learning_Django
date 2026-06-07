@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Звіт по продажах</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 40px auto; padding: 0 20px; }
+    form { margin-bottom: 30px; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+    .form-group { margin-bottom: 10px; }
+    .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+    .form-group input, .form-group select { width: 100%; padding: 8px; box-sizing: border-box; }
+    button { background: #28a745; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; }
+    ul { list-style: none; padding: 0; }
+    li { padding: 10px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; }
+  </style>
+</head>
+<body>
+
+<h1>Унести новий продаж</h1>
+<form method="POST">
+  {% csrf_token %}
+  {% for field in form %}
+  <div class="form-group">
+    {{ field.label_tag }}
+    {{ field }}
+  </div>
+  {% endfor %}
+  <button type="submit">Зберегти</button>
+</form>
+
+<h2>Історія продажів</h2>
+<ul>
+  {% for sale in sales %}
+  <li>
+    <span><strong>{{ sale.product.name }}</strong> (x{{ sale.quantity }})</span>
+    <span>{{ sale.total_amount }} грн</span>
+  </li>
+  {% empty %}
+  <li>Продажів ще не зафіксовано.</li>
+  {% endfor %}
+</ul>
+
+</body>
+</html>
