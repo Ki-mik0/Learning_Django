@@ -6,6 +6,8 @@ class SalesAdmin(admin.ModelAdmin):
     list_display = ("id", "product", "quantity", "created_at")
     list_filter = ("product", "created_at")
 
+    inlines = ['SalesAdmin']
+
     @admin.display(description="Кількість продажів")
     def get_quantity(self, obj):
         return obj.quantity
