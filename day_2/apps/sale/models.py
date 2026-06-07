@@ -5,7 +5,7 @@ class Sale(TimeStampedModel):
     product = models.ForeignKey(
         'product.Product',
         on_delete=models.CASCADE,
-        related_name='sale',
+        related_name='sales',
         verbose_name="Product"
     )
 
